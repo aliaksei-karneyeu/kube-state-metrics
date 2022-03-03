@@ -67,7 +67,7 @@ touch "${HOME}"/.kube/config
 
 export KUBECONFIG=$HOME/.kube/config
 
-kind create cluster --image="${NODE_IMAGE_NAME}:${KUBERNETES_VERSION}"
+kind get clusters |grep 'kind' || kind create cluster --image="${NODE_IMAGE_NAME}:${KUBERNETES_VERSION}"
 
 kind export kubeconfig
 
